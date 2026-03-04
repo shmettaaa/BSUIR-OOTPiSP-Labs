@@ -7,7 +7,6 @@ namespace Figures
     {
         public double X { get; set; }
         public double Y { get; set; }
-
         public Brush Stroke { get; set; }
         public double StrokeThickness { get; set; }
 
@@ -19,27 +18,18 @@ namespace Figures
             StrokeThickness = 2.0;
         }
 
-        protected Shape(double x, double y)
+        protected Shape(double x, double y) : this()
         {
             X = x;
             Y = y;
-            Stroke = Brushes.Black;
-            StrokeThickness = 2.0;
         }
 
-        protected Shape(double x, double y, Brush stroke, double thickness)
+        protected Shape(double x, double y, Brush stroke, double thickness) : this(x, y)
         {
-            X = x;
-            Y = y;
             Stroke = stroke ?? Brushes.Black;
             StrokeThickness = thickness > 0 ? thickness : 2.0;
         }
 
         public abstract void Draw(Canvas canvas);
-
-        public override string ToString()
-        {
-            return $"{GetType().Name} at ({X:F1}, {Y:F1})";
-        }
     }
 }

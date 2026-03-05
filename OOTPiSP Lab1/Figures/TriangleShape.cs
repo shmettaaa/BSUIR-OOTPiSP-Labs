@@ -18,7 +18,7 @@ namespace Figures
             Point3 = new Point(0, 0);
         }
 
-        public TriangleShape(Point p1, Point p2, Point p3, Brush stroke, Brush fill, double thickness = 2.0)
+        public TriangleShape(Point p1, Point p2, Point p3, Brush stroke, Brush fill, double thickness)
             : base(p1.X, p1.Y, stroke, fill, thickness) 
         {
             Point1 = p1;

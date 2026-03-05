@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOTPiSP_Lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="ООП-1"
+        Width="900" Height="600"
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Canvas x:Name="DrawingCanvas" 
+                Width="1200" Height="800"
+                Background="White"/>
+    </ScrollViewer>
 </Window>

@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
 namespace Figures
 {
@@ -7,23 +6,17 @@ namespace Figures
     {
         public Brush Fill { get; set; }
 
-        
         protected ClosedShape() : base()
         {
             Fill = Brushes.Transparent;
         }
 
-        protected ClosedShape(double x, double y) : base(x, y)
-        {
-            Fill = Brushes.Transparent;
-        }
-
-        protected ClosedShape(double x, double y, Brush stroke, Brush fill,
-            double thickness) : base(x, y, stroke, thickness)
+        protected ClosedShape(Brush stroke, Brush fill, double thickness = 2.0)
+            : base(stroke, thickness)
         {
             Fill = fill ?? Brushes.Transparent;
         }
 
-        public abstract override void Draw(Canvas canvas);
+        public abstract override void Draw(System.Windows.Controls.Canvas canvas);
     }
 }

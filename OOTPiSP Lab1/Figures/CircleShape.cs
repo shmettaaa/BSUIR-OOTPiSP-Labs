@@ -4,47 +4,38 @@ using System.Windows.Shapes;
 
 namespace Figures
 {
-    public class CircleShape : ClosedShape 
+    public class CircleShape : ClosedShape
     {
-        private double _diameter;
+        public double Cx { get; set; }
+        public double Cy { get; set; }
+        public double Radius { get; set; }
 
-        public double Diameter
-        {
-            get => _diameter;
-            set => _diameter = value > 0 ? value : 0;
-        }
-
-       
         public CircleShape() : base()
         {
-            Diameter = 0;
+            Cx = Cy = Radius = 0;
         }
 
-        public CircleShape(double x, double y, double diameter)
-            : base(x, y)
+        public CircleShape(double cx, double cy, double radius,
+                           Brush stroke, Brush fill, double thickness = 2.0)
+            : base(stroke, fill, thickness)
         {
-            Diameter = diameter;
-        }
-
-        public CircleShape(double x, double y, double diameter,
-                          Brush stroke, Brush fill, double thickness = 2.0)
-            : base(x, y, stroke, fill, thickness)
-        {
-            Diameter = diameter;
+            Cx = cx;
+            Cy = cy;
+            Radius = radius > 0 ? radius : 0;
         }
 
         public override void Draw(Canvas canvas)
         {
             var ellipse = new Ellipse
             {
-                Width = _diameter,     
-                Height = _diameter,   
+                Width = 2 * Radius,
+                Height = 2 * Radius,
                 Stroke = Stroke,
                 Fill = Fill,
                 StrokeThickness = StrokeThickness
             };
-            Canvas.SetLeft(ellipse, X);
-            Canvas.SetTop(ellipse, Y);
+            Canvas.SetLeft(ellipse, Cx - Radius);
+            Canvas.SetTop(ellipse, Cy - Radius);
             canvas.Children.Add(ellipse);
         }
     }

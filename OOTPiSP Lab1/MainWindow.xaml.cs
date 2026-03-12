@@ -1,14 +1,6 @@
-﻿using Figures;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+﻿using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Figures;
 
 namespace OOTPiSP_Lab1
 {
@@ -19,9 +11,7 @@ namespace OOTPiSP_Lab1
         public MainWindow()
         {
             InitializeComponent();
-
             InitializeShapes();
-
             _shapeList.DrawAll(DrawingCanvas);
         }
 
@@ -34,23 +24,20 @@ namespace OOTPiSP_Lab1
             _shapeList.Add(new RectangleShape(100, 200, 150, 100,
                 Brushes.Blue, Brushes.LightBlue, 2));
 
-            _shapeList.Add(new EllipseShape(300, 200, 120, 80,
+            _shapeList.Add(new EllipseShape(400, 250, 120, 80,
                 Brushes.Green, Brushes.LightGreen, 2));
 
-            _shapeList.Add(new CircleShape(500, 200, 70,
-                Brushes.Orange, Brushes.Yellow, 7));
+            _shapeList.Add(new CircleShape(600, 250, 50,
+                Brushes.Orange, Brushes.Yellow, 3));
 
-            _shapeList.Add(new SquareShape(100, 350, 80,
+            _shapeList.Add(new TriangleShape(200, 400, 300, 500, 100, 500,
                 Brushes.Purple, Brushes.Violet, 2));
 
-            _shapeList.Add(new TriangleShape(
-                new Point(300, 400),
-                new Point(400, 400),
-                new Point(350, 300),
+            _shapeList.Add(new RegularPolygon(500, 450, 5, 70,
                 Brushes.Brown, Brushes.SandyBrown, 2));
 
-            _shapeList.Add(new EllipseShape(400, 130, 90, 50));
+            _shapeList.Add(new RegularPolygon(700, 450, 6, 60,
+                Brushes.DarkCyan, Brushes.LightCyan, 2));
         }
-
     }
 }

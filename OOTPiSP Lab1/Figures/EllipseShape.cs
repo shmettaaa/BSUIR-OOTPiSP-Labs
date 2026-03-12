@@ -6,40 +6,24 @@ namespace Figures
 {
     public class EllipseShape : ClosedShape
     {
-        private double _width;
-        private double _height;
-
-        public double Width
-        {
-            get => _width;
-            set => _width = value > 0 ? value : 0;
-        }
-
-        public double Height
-        {
-            get => _height;
-            set => _height = value > 0 ? value : 0;
-        }
+        public double Cx { get; set; }
+        public double Cy { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         public EllipseShape() : base()
         {
-            Width = 0;
-            Height = 0;
+            Cx = Cy = Width = Height = 0;
         }
 
-        public EllipseShape(double x, double y, double width, double height)
-            : base(x, y)
+        public EllipseShape(double cx, double cy, double width, double height,
+                            Brush stroke, Brush fill, double thickness = 2.0)
+            : base(stroke, fill, thickness)
         {
-            Width = width;
-            Height = height;
-        }
-
-        public EllipseShape(double x, double y, double width, double height,
-                           Brush stroke, Brush fill, double thickness)
-            : base(x, y, stroke, fill, thickness)
-        {
-            Width = width;
-            Height = height;
+            Cx = cx;
+            Cy = cy;
+            Width = width > 0 ? width : 0;
+            Height = height > 0 ? height : 0;
         }
 
         public override void Draw(Canvas canvas)
@@ -52,8 +36,8 @@ namespace Figures
                 Fill = Fill,
                 StrokeThickness = StrokeThickness
             };
-            Canvas.SetLeft(ellipse, X);
-            Canvas.SetTop(ellipse, Y);
+            Canvas.SetLeft(ellipse, Cx - Width / 2);
+            Canvas.SetTop(ellipse, Cy - Height / 2);
             canvas.Children.Add(ellipse);
         }
     }

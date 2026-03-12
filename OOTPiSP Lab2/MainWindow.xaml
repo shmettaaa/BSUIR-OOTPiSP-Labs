@@ -1,0 +1,17 @@
+﻿<Window x:Class="OOTPiSP_Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOTPiSP_Lab2"
+        mc:Ignorable="d"
+               Title="ООП-2"
+        Width="900" Height="600"
+        WindowStartupLocation="CenterScreen">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Canvas x:Name="DrawingCanvas" 
+                Width="1200" Height="800"
+                Background="White"/>
+    </ScrollViewer>
+</Window>

@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using Figures;
 
-namespace OOTPiSP_Lab1
+namespace OOTPiSP_Lab2
 {
     public partial class MainWindow : Window
     {
@@ -12,32 +12,35 @@ namespace OOTPiSP_Lab1
         {
             InitializeComponent();
             InitializeShapes();
-            _shapeList!.DrawAll(DrawingCanvas);
+            _shapeList.DrawAll(DrawingCanvas);
         }
 
         private void InitializeShapes()
         {
             _shapeList = new ShapeList();
 
+            // 1. Отрезок
             _shapeList.Add(new LineShape(100, 100, 250, 150, Brushes.Red, 3));
 
+            // 2. Прямоугольник
             _shapeList.Add(new RectangleShape(100, 200, 150, 100,
                 Brushes.Blue, Brushes.LightBlue, 2));
 
+            // 3. Эллипс
             _shapeList.Add(new EllipseShape(400, 250, 120, 80,
                 Brushes.Green, Brushes.LightGreen, 2));
 
+            // 4. Круг
             _shapeList.Add(new CircleShape(600, 250, 50,
                 Brushes.Orange, Brushes.Yellow, 3));
 
+            // 5. Треугольник
             _shapeList.Add(new TriangleShape(200, 400, 300, 500, 100, 500,
                 Brushes.Purple, Brushes.Violet, 2));
 
+            // 6. Правильный пятиугольник
             _shapeList.Add(new RegularPolygon(500, 450, 5, 70,
                 Brushes.Brown, Brushes.SandyBrown, 2));
-            _shapeList.Add(new RegularPolygon(650, 450, 8, 70,
-              Brushes.Brown, Brushes.SandyBrown, 2));
-
         }
     }
 }

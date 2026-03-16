@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
+﻿using System.Windows.Media;
 
 namespace Figures
 {
@@ -16,31 +13,11 @@ namespace Figures
 
         public TriangleShape(double x1, double y1, double x2, double y2, double x3, double y3,
                              Brush stroke, Brush fill, double thickness)
-            : base(stroke, fill, thickness)
         {
-            X1 = x1;
-            Y1 = y1;
-            X2 = x2;
-            Y2 = y2;
-            X3 = x3;
-            Y3 = y3;
-        }
-
-        public override void Draw(Canvas canvas)
-        {
-            var polygon = new Polygon
-            {
-                Points = new PointCollection
-                {
-                    new Point(X1, Y1),
-                    new Point(X2, Y2),
-                    new Point(X3, Y3)
-                },
-                Stroke = Stroke,
-                Fill = Fill,
-                StrokeThickness = StrokeThickness
-            };
-            canvas.Children.Add(polygon);
+            X1 = x1; Y1 = y1; X2 = x2; Y2 = y2; X3 = x3; Y3 = y3;
+            Stroke = stroke;
+            Fill = fill;
+            StrokeThickness = thickness;
         }
     }
 }

@@ -5,8 +5,11 @@ using System.Windows.Shapes;
 
 namespace Figures
 {
+    // Triangle defined by three vertices
+    // Inherits from ClosedShape (has fill)
     public class TriangleShape : ClosedShape
     {
+        // Three vertices coordinates
         public double X1 { get; set; }
         public double Y1 { get; set; }
         public double X2 { get; set; }
@@ -14,6 +17,7 @@ namespace Figures
         public double X3 { get; set; }
         public double Y3 { get; set; }
 
+        // Constructor takes all three points
         public TriangleShape(double x1, double y1, double x2, double y2, double x3, double y3,
                              Brush stroke, Brush fill, double thickness)
             : base(stroke, fill, thickness)
@@ -26,8 +30,10 @@ namespace Figures
             Y3 = y3;
         }
 
+        // Draw triangle using WPF Polygon element
         public override void Draw(Canvas canvas)
         {
+            // Create polygon with three points
             var polygon = new Polygon
             {
                 Points = new PointCollection

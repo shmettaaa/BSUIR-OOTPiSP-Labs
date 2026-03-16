@@ -1,5 +1,4 @@
 ﻿using System.Windows.Media;
-using System.Windows.Controls;
 
 namespace Figures
 {
@@ -8,12 +7,5 @@ namespace Figures
         public Brush Stroke { get; set; }
         public double StrokeThickness { get; set; }
 
-        protected Shape(Brush stroke, double thickness)
-        {
-            Stroke = stroke;
-            StrokeThickness = thickness;
-        }
-
-        public abstract void Draw(Canvas canvas);
     }
 }

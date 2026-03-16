@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
+﻿using System.Windows.Media;
 
 namespace Figures
 {
@@ -13,27 +11,11 @@ namespace Figures
 
         public EllipseShape(double cx, double cy, double width, double height,
                             Brush stroke, Brush fill, double thickness)
-            : base(stroke, fill, thickness)
         {
-            Cx = cx;
-            Cy = cy;
-            Width = width;
-            Height = height;
-        }
-
-        public override void Draw(Canvas canvas)
-        {
-            var ellipse = new Ellipse
-            {
-                Width = Width,
-                Height = Height,
-                Stroke = Stroke,
-                Fill = Fill,
-                StrokeThickness = StrokeThickness
-            };
-            Canvas.SetLeft(ellipse, Cx - Width / 2);
-            Canvas.SetTop(ellipse, Cy - Height / 2);
-            canvas.Children.Add(ellipse);
+            Cx = cx; Cy = cy; Width = width; Height = height;
+            Stroke = stroke;
+            Fill = fill;
+            StrokeThickness = thickness;
         }
     }
 }

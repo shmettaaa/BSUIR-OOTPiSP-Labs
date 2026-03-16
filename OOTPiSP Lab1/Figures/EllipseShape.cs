@@ -4,10 +4,15 @@ using System.Windows.Shapes;
 
 namespace Figures
 {
+    // Ellipse defined by center point, width and height
+    // Inherits from ClosedShape (has fill)
     public class EllipseShape : ClosedShape
     {
+        // Center coordinates
         public double Cx { get; set; }
         public double Cy { get; set; }
+
+        // Size (diameters)
         public double Width { get; set; }
         public double Height { get; set; }
 
@@ -21,6 +26,7 @@ namespace Figures
             Height = height;
         }
 
+        // Draw ellipse using WPF Ellipse element
         public override void Draw(Canvas canvas)
         {
             var ellipse = new Ellipse
@@ -31,6 +37,7 @@ namespace Figures
                 Fill = Fill,
                 StrokeThickness = StrokeThickness
             };
+            // Position so that center is at (Cx, Cy)
             Canvas.SetLeft(ellipse, Cx - Width / 2);
             Canvas.SetTop(ellipse, Cy - Height / 2);
             canvas.Children.Add(ellipse);

@@ -1,0 +1,143 @@
+﻿<Window x:Class="OOTPiSP_Lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOTPiSP_Lab3"
+        xmlns:figures="clr-namespace:Figures"
+        mc:Ignorable="d"
+        Title="Shape Editor - Serialization Lab" Height="650" Width="1100">
+
+    <Window.Resources>
+       
+
+        <DataTemplate DataType="{x:Type figures:LineShape}">
+            <TextBlock>
+                <Run Text="Line: " FontWeight="Bold"/>
+                <Run Text="("/><Run Text="{Binding X1}"/><Run Text=", "/><Run Text="{Binding Y1}"/><Run Text=") → ("/>
+                <Run Text="{Binding X2}"/><Run Text=", "/><Run Text="{Binding Y2}"/><Run Text=")"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type figures:RectangleShape}">
+            <TextBlock>
+                <Run Text="Rectangle: " FontWeight="Bold"/>
+                <Run Text="X="/><Run Text="{Binding X}"/><Run Text=", Y="/><Run Text="{Binding Y}"/>
+                <Run Text=", W="/><Run Text="{Binding Width}"/><Run Text=", H="/><Run Text="{Binding Height}"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Fill="/><Run Text="{Binding Fill}" Foreground="DarkGreen"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type figures:EllipseShape}">
+            <TextBlock>
+                <Run Text="Ellipse: " FontWeight="Bold"/>
+                <Run Text="Center=("/><Run Text="{Binding Cx}"/><Run Text=", "/><Run Text="{Binding Cy}"/><Run Text=")"/>
+                <Run Text=", W="/><Run Text="{Binding Width}"/><Run Text=", H="/><Run Text="{Binding Height}"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Fill="/><Run Text="{Binding Fill}" Foreground="DarkGreen"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type figures:CircleShape}">
+            <TextBlock>
+                <Run Text="Circle: " FontWeight="Bold"/>
+                <Run Text="Center=("/><Run Text="{Binding Cx}"/><Run Text=", "/><Run Text="{Binding Cy}"/><Run Text=")"/>
+                <Run Text=", Radius="/><Run Text="{Binding Radius}"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Fill="/><Run Text="{Binding Fill}" Foreground="DarkGreen"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type figures:TriangleShape}">
+            <TextBlock>
+                <Run Text="Triangle: " FontWeight="Bold"/>
+                <Run Text="("/><Run Text="{Binding X1}"/><Run Text=", "/><Run Text="{Binding Y1}"/><Run Text=") "/>
+                <Run Text="("/><Run Text="{Binding X2}"/><Run Text=", "/><Run Text="{Binding Y2}"/><Run Text=") "/>
+                <Run Text="("/><Run Text="{Binding X3}"/><Run Text=", "/><Run Text="{Binding Y3}"/><Run Text=")"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Fill="/><Run Text="{Binding Fill}" Foreground="DarkGreen"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type figures:RegularPolygon}">
+            <TextBlock>
+                <Run Text="RegularPolygon: " FontWeight="Bold"/>
+                <Run Text="{Binding Sides}"/><Run Text=" sides"/>
+                <Run Text=", Center=("/><Run Text="{Binding Cx}"/><Run Text=", "/><Run Text="{Binding Cy}"/><Run Text=")"/>
+                <Run Text=", Radius="/><Run Text="{Binding Radius}"/>
+                <Run Text=", Stroke="/><Run Text="{Binding Stroke}" Foreground="DarkBlue"/>
+                <Run Text=", Fill="/><Run Text="{Binding Fill}" Foreground="DarkGreen"/>
+                <Run Text=", Thick="/><Run Text="{Binding StrokeThickness}"/>
+            </TextBlock>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="Shapes List" FontWeight="Bold" FontSize="16" 
+                           TextAlignment="Center" Margin="5"/>
+                
+                <ListBox Grid.Row="1" ItemsSource="{Binding Shapes}" 
+                         SelectedItem="{Binding SelectedShape}" Margin="6"
+                         x:Name="ShapesListBox">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                
+                <StackPanel Grid.Row="2" Margin="6">
+                    <Button Content="Add Shape" Click="OnAddShapeClick" Margin="2"/>
+                    <Button Content="Remove Selected" Click="OnRemoveShapeClick" 
+                            IsEnabled="{Binding HasSelectedShape}" Margin="2"/>
+                    <Button Content="Edit Properties" Click="OnEditShapeClick" 
+                            IsEnabled="{Binding HasSelectedShape}" Margin="2"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="0" BorderBrush="Black" BorderThickness="2" Margin="8" Background="White">
+                    <Canvas x:Name="DrawingCanvas" Background="White" ClipToBounds="True"/>
+                </Border>
+                
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <Button Content="Refresh Drawing" Click="OnRefreshDrawingClick" Width="140" Margin="5"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                    <Button Content="Save to JSON" Click="OnSaveClick" Width="110" Margin="5"/>
+                    <Button Content="Load from JSON" Click="OnLoadClick" Width="110" Margin="5"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

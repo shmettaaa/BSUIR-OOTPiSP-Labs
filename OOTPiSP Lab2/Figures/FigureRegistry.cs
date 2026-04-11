@@ -26,17 +26,23 @@ namespace Figures
 
         public static void AutoRegister()
         {
-            var registrations = Assembly.GetExecutingAssembly()
-                .GetTypes()
-                .Where(t => typeof(IFigureRegistration).IsAssignableFrom(t)
-                            && !t.IsInterface
-                            && !t.IsAbstract);
+            Type[] types = Assembly.GetExecutingAssembly().GetTypes();
 
-            foreach (var type in registrations)
+            foreach (Type type in types)
             {
-                var instance = (IFigureRegistration)Activator.CreateInstance(type);
-                instance.Register();
+                if (typeof(IFigureRegistration).IsAssignableFrom(type) &&
+                    !type.IsInterface &&
+                    !type.IsAbstract)
+                {
+                    IFigureRegistration? registration =
+                        (IFigureRegistration?)Activator.CreateInstance(type);
+
+                    registration?.Register();
+                }
             }
         }
+
+
+
     }
 }

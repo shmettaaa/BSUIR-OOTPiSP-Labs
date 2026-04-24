@@ -8,6 +8,7 @@ namespace Figures
     public static class FigureRegistry
     {
         private static readonly Dictionary<string, FigureHandler> _handlers = new();
+        private static readonly Dictionary<Type, Renderers.IShapeRenderer> _externalRenderers = new();
 
         public static void Register(string name, FigureHandler handler)
         {
@@ -82,6 +83,19 @@ namespace Figures
                     }
                 }
             }
+        }
+
+        public static void RegisterRenderer(Type shapeType, Renderers.IShapeRenderer renderer)
+        {
+            if (shapeType == null || renderer == null) return;
+            if (!_externalRenderers.ContainsKey(shapeType))
+                _externalRenderers[shapeType] = renderer;
+        }
+
+        public static Renderers.IShapeRenderer? GetRegisteredRenderer(Type shapeType)
+        {
+            _externalRenderers.TryGetValue(shapeType, out var r);
+            return r;
         }
     }
 }

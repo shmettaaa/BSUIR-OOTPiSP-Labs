@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>Shapes Report</title>
+    <style>
+          body { font-family: Arial; margin: 20px; }
+          table { border-collapse: collapse; width: 100%; }
+          th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+          th { background-color: #4CAF50; color: white; }
+          tr:nth-child(even) { background-color: #f2f2f2; }
+        </style>
+  </head>
+  <body>
+    <h1>Shapes Report</h1>
+    <p>Generated on: 2026-04-24 18:28:05Z</p>
+    <p>Total shapes: 3</p>
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Parameters</th>
+      </tr>
+      <tr>
+        <td>Figures.EllipseShape, OOTPiSP Lab4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</td>
+        <td><b>Cx:</b>213,80000000000004<br><b>Cy:</b>279,04<br><b>Width:</b>140,00000000000006<br><b>Height:</b>140,00000000000006<br><b>Stroke:</b>#FF000000<br><b>Fill:</b>#FFD3D3D3<br><b>StrokeThickness:</b>2<br></td>
+      </tr>
+      <tr>
+        <td>Figures.EllipseShape, OOTPiSP Lab4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</td>
+        <td><b>Cx:</b>403,8<br><b>Cy:</b>184,64<br><b>Width:</b>124,80000000000007<br><b>Height:</b>124,80000000000007<br><b>Stroke:</b>#FF000000<br><b>Fill:</b>#FFD3D3D3<br><b>StrokeThickness:</b>2<br></td>
+      </tr>
+      <tr>
+        <td>Figures.EllipseShape, OOTPiSP Lab4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</td>
+        <td><b>Cx:</b>548,2<br><b>Cy:</b>167,84<br><b>Width:</b>50,40000000000009<br><b>Height:</b>50,40000000000009<br><b>Stroke:</b>#FF000000<br><b>Fill:</b>#FFD3D3D3<br><b>StrokeThickness:</b>2<br></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -13,5 +13,6 @@ public class RectangleRegistration : IFigureRegistration
                 new RectangleRenderer()
             )
         );
+        ShapeSerializerRegistry.Register(typeof(RectangleShape), new RectangleShapeSerializer());
     }
 }

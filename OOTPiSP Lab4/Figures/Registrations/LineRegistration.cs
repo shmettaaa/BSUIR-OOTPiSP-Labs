@@ -14,6 +14,7 @@ namespace Figures
                     new LineRenderer()
                 )
             );
+            ShapeSerializerRegistry.Register(typeof(LineShape), new LineShapeSerializer());
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Figures
                     new CircleRenderer()
                 )
             );
+            ShapeSerializerRegistry.Register(typeof(CircleShape), new CircleShapeSerializer());
         }
     }
 }

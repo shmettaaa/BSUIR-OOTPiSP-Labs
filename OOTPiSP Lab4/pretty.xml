@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Shapes>
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="212.60000000000002"
+		CenterY="224.24000000000004"
+		Width="107.20000000000005"
+		Height="184.00000000000006"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="455.4000000000001"
+		CenterY="417.44000000000005"
+		Width="156"
+		Height="148"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="547.8000000000001"
+		CenterY="228.64000000000004"
+		Width="140.79999999999995"
+		Height="85.60000000000005"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="573"
+		CenterY="98.64"
+		Width="37.60000000000002"
+		Height="28.799999999999983"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="336.2"
+		CenterY="105.44"
+		Width="58.39999999999998"
+		Height="28"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="141.80000000000004"
+		CenterY="403.44000000000005"
+		Width="47.19999999999999"
+		Height="120"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="3" />
+	<Shape
+		Type="Figures.TriangleShape, OOTPiSP Lab4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		X1="2638"
+		Y1="40024000000000010"
+		X2="3406"
+		Y2="51224"
+		X3="3566"
+		Y3="24584"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="3" />
+	<Shape
+		Type="Figures.TriangleShape, OOTPiSP Lab4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		X1="42380000000000010"
+		Y1="15064000000000000"
+		X2="6006"
+		Y2="44984000000000000"
+		X3="6702"
+		Y3="35704"
+		Stroke="#FFFDF5E6"
+		Fill="#FFFF00FF"
+		StrokeThickness="3" />
+</Shapes>

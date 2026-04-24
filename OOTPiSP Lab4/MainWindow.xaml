@@ -9,6 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -16,10 +17,23 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+        <!-- Menu bar -->
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="Save Shapes..." Click="Save_Click"/>
+                <MenuItem Header="Load Shapes..." Click="Load_Click"/>
+                <Separator/>
+                <MenuItem Header="Export to HTML..." Click="ExportHtml_Click"/>
+            </MenuItem>
+            <MenuItem Header="Plugins">
+                <MenuItem Header="Configure Transformations" Click="ConfigureTransformers_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Settings panel (unchanged, moved one row down) -->
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"
                 Background="#F5F5F5" BorderBrush="#DDD" BorderThickness="1" Padding="10">
             <StackPanel>
-
                 <TextBlock Text="Фигура" FontWeight="Bold" Margin="0,0,0,6"/>
                 <ComboBox x:Name="cmbShapeTypes" Margin="0,0,0,16" SelectionChanged="cmbShapeTypes_SelectionChanged"/>
 
@@ -43,11 +57,11 @@
 
                 <Button x:Name="btnClear" Content="Очистить" Margin="0,12,0,0" Padding="8" 
                         Click="btnClear_Click" Background="#E74C3C" Foreground="White"/>
-
             </StackPanel>
         </Border>
 
-        <Canvas x:Name="drawingCanvas" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+        <!-- Canvas for drawing -->
+        <Canvas x:Name="drawingCanvas" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
                 Background="White" Margin="1"
                 MouseLeftButtonDown="drawingCanvas_MouseLeftButtonDown"/>
     </Grid>

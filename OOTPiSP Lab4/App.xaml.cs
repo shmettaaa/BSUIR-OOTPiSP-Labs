@@ -11,10 +11,9 @@ namespace FiguresApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            LoadPlugins();
-
-            FigureRegistry.AutoRegister();
-
+            LoadPlugins();   // загружает плагины и вызывает их Register()
+            FigureRegistry.AutoRegister();   // регистрирует встроенные фигуры
+            TransformerRegistry.AutoRegisterTransformers(); // регистрирует встроенные трансформаторы (если есть)
             base.OnStartup(e);
         }
 
@@ -31,42 +30,7 @@ namespace FiguresApp
 
             if (!loadedAny)
             {
-                try
-                {
-                    var baseDir = AppDomain.CurrentDomain.BaseDirectory;
-
-                    string? dir = baseDir;
-                    string? solutionRoot = null;
-                    while (!string.IsNullOrEmpty(dir))
-                    {
-                        var slnFiles = Directory.GetFiles(dir, "*.sln", SearchOption.TopDirectoryOnly);
-                        if (slnFiles.Length > 0)
-                        {
-                            solutionRoot = dir;
-                            break;
-                        }
-                        var parent = Path.GetDirectoryName(dir);
-                        if (string.IsNullOrEmpty(parent) || parent == dir) break;
-                        dir = parent;
-                    }
-
-                    if (solutionRoot == null)
-                    {
-                        solutionRoot = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", ".."));
-                    }
-
-                    System.Diagnostics.Debug.WriteLine($"Plugin search root: {solutionRoot}");
-
-                    var candidateDlls = Directory.EnumerateFiles(solutionRoot, "*Plugin.dll", SearchOption.AllDirectories);
-                    foreach (var dll in candidateDlls)
-                    {
-                        TryLoadPlugin(dll, ref loadedAny);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Plugin discovery scan failed: {ex.Message}");
-                }
+                System.Diagnostics.Debug.WriteLine("No plugins loaded from Plugins folder.");
             }
         }
 

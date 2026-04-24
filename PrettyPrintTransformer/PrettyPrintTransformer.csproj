@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FiguresCore\FiguresCore.csproj">
+      <Private>false</Private>
+    </ProjectReference>
+  </ItemGroup>
+
+  <Target Name="CopyPluginToAppPlugins" AfterTargets="Build">
+    <PropertyGroup>
+      <AppPluginsDir>$(MSBuildProjectDirectory)\..\OOTPiSP Lab4\bin\$(Configuration)\$(TargetFramework)\Plugins</AppPluginsDir>
+      <BuiltDll>$(OutputPath)$(AssemblyName).dll</BuiltDll>
+    </PropertyGroup>
+    <MakeDir Directories="$(AppPluginsDir)" />
+    <Copy SourceFiles="$(BuiltDll)" DestinationFolder="$(AppPluginsDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

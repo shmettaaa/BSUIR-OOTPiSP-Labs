@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,18 +16,21 @@ namespace FiguresApp
     {
         private readonly List<Point> clickPoints = new List<Point>();
         private Ellipse startDot;
+        private List<Figures.Shape> _shapes = new List<Figures.Shape>();          // Current shapes on canvas
+        // Single active transformer (no multi-selection required)
+        private IDataTransformer _activeTransformer;
 
+        // Removed large embedded XSLT template from main window to keep UI code minimal.
         public MainWindow()
         {
             InitializeComponent();
 
-            var count = FigureRegistry.GetAllNames().Count();
-            System.Diagnostics.Debug.WriteLine($"Registered shapes count: {count}");
+            // Select first available transformer by default (simpler behavior)
+            _activeTransformer = TransformerRegistry.GetAll().FirstOrDefault();
 
             foreach (var name in FigureRegistry.GetAllNames())
             {
                 cmbShapeTypes.Items.Add(name);
-                System.Diagnostics.Debug.WriteLine($"Added: {name}");
             }
 
             if (cmbShapeTypes.Items.Count > 0)
@@ -75,6 +80,7 @@ namespace FiguresApp
             if (model != null)
             {
                 handler.Renderer.Render(model, drawingCanvas);
+                _shapes.Add(model);   // Add to list for serialization
             }
         }
 
@@ -108,7 +114,75 @@ namespace FiguresApp
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             drawingCanvas.Children.Clear();
+            _shapes.Clear();
             ClearPointsAndDot();
+        }
+
+        // ---------- Serialization / Deserialization ----------
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog { Filter = "XML files|*.xml" };
+            if (dialog.ShowDialog() == true)
+            {
+                string xml = ShapeCollectionSerializer.SaveToString(_shapes);
+                if (_activeTransformer != null)
+                    xml = _activeTransformer.TransformBeforeSave(xml);
+                File.WriteAllText(dialog.FileName, xml);
+            }
+        }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog { Filter = "XML files|*.xml" };
+            if (dialog.ShowDialog() == true)
+            {
+                string xml = File.ReadAllText(dialog.FileName);
+                // Apply transformers in reverse order
+                if (_activeTransformer != null)
+                    xml = _activeTransformer.TransformAfterLoad(xml);
+                var loadedShapes = ShapeCollectionSerializer.LoadFromString(xml);
+                // Replace current shapes
+                drawingCanvas.Children.Clear();
+                _shapes.Clear();
+                foreach (var shape in loadedShapes)
+                {
+                    _shapes.Add(shape);
+                    var renderer = RendererRegistry.GetRenderer(shape);
+                    renderer?.Render(shape, drawingCanvas);
+                }
+            }
+        }
+
+        private void ExportHtml_Click(object sender, RoutedEventArgs e)
+        {
+            // Use active transformer if it is the HTML report transformer, otherwise try to find one
+            var htmlTransformer = _activeTransformer?.Name == "HTML Report"
+                ? _activeTransformer
+                : TransformerRegistry.GetAll().FirstOrDefault(t => t.Name == "HTML Report");
+
+            if (htmlTransformer == null)
+            {
+                MessageBox.Show("HTML Report plugin not found.", "Export Error");
+                return;
+            }
+
+            var dialog = new Microsoft.Win32.SaveFileDialog { Filter = "HTML files|*.html" };
+            if (dialog.ShowDialog() == true)
+            {
+                string xml = ShapeCollectionSerializer.SaveToString(_shapes);
+                string html = htmlTransformer.TransformBeforeSave(xml);
+                File.WriteAllText(dialog.FileName, html);
+                MessageBox.Show("HTML report exported.", "Export");
+            }
+        }
+
+        private void ConfigureTransformers_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new TransformersSettingsWindow(_activeTransformer);
+            if (dialog.ShowDialog() == true)
+            {
+                _activeTransformer = dialog.SelectedTransformer;
+            }
         }
     }
 }

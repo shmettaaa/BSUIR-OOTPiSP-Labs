@@ -1,8 +1,11 @@
 <Solution>
+  <Project Path="CheckPluginTypes/CheckPluginTypes.csproj" Id="f469eeaf-4cae-4113-bc47-124f0a0a15f6" />
   <Project Path="FiguresCore/FiguresCore.csproj" Id="e947c6af-b37b-4239-8781-a43fcedf6750" />
+  <Project Path="HtmlReportTransformer/HtmlReportTransformer.csproj" Id="5e335df1-4662-486d-9297-2f8108273f89" />
   <Project Path="OOTPiSP Lab1/OOTPiSP Lab1.csproj" />
   <Project Path="OOTPiSP Lab2/OOTPiSP Lab2.csproj" Id="65df617a-6826-4a77-856c-307a7cb9e24c" />
   <Project Path="OOTPiSP Lab3/OOTPiSP Lab3.csproj" Id="2aae4954-7622-47c6-88e8-bb5b3527dbb8" />
   <Project Path="OOTPiSP Lab4/OOTPiSP Lab4.csproj" Id="1a752faf-6cdf-45cd-bd50-91289debc44b" />
+  <Project Path="PrettyPrintTransformer/PrettyPrintTransformer.csproj" Id="36e2bb79-9516-4489-9582-bd87cbdd6ae7" />
   <Project Path="RhombusPlugin/RhombusPlugin.csproj" Id="d5b4056c-c3b5-4e34-a503-76e9c4f3f8c8" />
 </Solution>

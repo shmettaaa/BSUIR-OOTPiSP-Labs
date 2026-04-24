@@ -14,6 +14,7 @@ namespace Figures
                     new TriangleRenderer()
                 )
             );
+            ShapeSerializerRegistry.Register(typeof(TriangleShape), new TriangleShapeSerializer());
         }
     }
 }

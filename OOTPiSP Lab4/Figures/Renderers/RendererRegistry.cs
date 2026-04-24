@@ -21,7 +21,26 @@ namespace Figures
         public static IShapeRenderer GetRenderer(Shape shape)
         {
             if (shape == null) return null;
-            return _renderers.TryGetValue(shape.GetType(), out var renderer) ? renderer : null;
+            if (_renderers.TryGetValue(shape.GetType(), out var renderer))
+                return renderer;
+
+            // Fallback: check if any external/plugin renderer was registered in FigureRegistry
+            var ext = FigureRegistry.GetRegisteredRenderer(shape.GetType());
+            if (ext != null)
+            {
+                // Cache for faster subsequent lookup
+                _renderers[shape.GetType()] = ext;
+                return ext;
+            }
+
+            return null;
+        }
+
+        public static void Register(Type shapeType, IShapeRenderer renderer)
+        {
+            if (shapeType == null || renderer == null) return;
+            if (!_renderers.ContainsKey(shapeType))
+                _renderers[shapeType] = renderer;
         }
     }
 }

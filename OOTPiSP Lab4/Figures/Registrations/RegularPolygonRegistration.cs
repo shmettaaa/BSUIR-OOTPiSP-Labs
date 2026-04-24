@@ -14,6 +14,7 @@ namespace Figures
                     new RegularPolygonRenderer()
                 )
             );
+            ShapeSerializerRegistry.Register(typeof(RegularPolygon), new RegularPolygonSerializer());
         }
     }
 }

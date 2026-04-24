@@ -14,6 +14,7 @@ namespace Figures
                     new EllipseRenderer()
                 )
             );
+            ShapeSerializerRegistry.Register(typeof(EllipseShape), new EllipseShapeSerializer());
         }
     }
 }

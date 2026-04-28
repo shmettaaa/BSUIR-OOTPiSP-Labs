@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OOTPiSP Lab4\OOTPiSP Lab4.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="New">
+      <HintPath>..\OOTPiSP Lab4\bin\Debug\net10.0-windows\Plugins\New.dll</HintPath>
+    </Reference>
+    <Reference Include="TrapeziumLibrary">
+      <HintPath>..\OOTPiSP Lab4\bin\Debug\net10.0-windows\Plugins\TrapeziumLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

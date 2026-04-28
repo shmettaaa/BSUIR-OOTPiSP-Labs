@@ -8,4 +8,5 @@
   <Project Path="OOTPiSP Lab4/OOTPiSP Lab4.csproj" Id="1a752faf-6cdf-45cd-bd50-91289debc44b" />
   <Project Path="PrettyPrintTransformer/PrettyPrintTransformer.csproj" Id="36e2bb79-9516-4489-9582-bd87cbdd6ae7" />
   <Project Path="RhombusPlugin/RhombusPlugin.csproj" Id="d5b4056c-c3b5-4e34-a503-76e9c4f3f8c8" />
+  <Project Path="TrapeziumDrawableAdapter.cs/TrapeziumDrawableAdapter.csproj" Id="a1af557a-ef9d-404a-9918-aed40077fe5d" />
 </Solution>

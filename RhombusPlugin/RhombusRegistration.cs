@@ -14,7 +14,6 @@ namespace RhombusPlugin
                 )
             );
             ShapeSerializerRegistry.Register(typeof(RhombusShape), new RhombusShapeSerializer());
-            // Also register renderer mapping so loaded RhombusShape instances can be rendered
             Figures.FigureRegistry.RegisterRenderer(typeof(RhombusShape), new RhombusRenderer());
         }
     }

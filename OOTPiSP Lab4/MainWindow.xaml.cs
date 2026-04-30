@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -16,25 +18,34 @@ namespace FiguresApp
     {
         private readonly List<Point> clickPoints = new List<Point>();
         private Ellipse startDot;
-        private List<Figures.Shape> _shapes = new List<Figures.Shape>();          // Current shapes on canvas
-        // Single active transformer (no multi-selection required)
+        private ObservableCollection<Figures.Shape> _shapes = new ObservableCollection<Figures.Shape>();          
+        private bool _isDirty = false;
         private IDataTransformer _activeTransformer;
 
-        // Removed large embedded XSLT template from main window to keep UI code minimal.
         public MainWindow()
         {
             InitializeComponent();
 
-            // Select first available transformer by default (simpler behavior)
-            _activeTransformer = TransformerRegistry.GetAll().FirstOrDefault();
+            _activeTransformer = TransformerRegistry.Instance.GetAll().FirstOrDefault();
+
+            _shapes.CollectionChanged += Shapes_CollectionChanged;
+
+            this.Title = $"FiguresApp - {_shapes.Count} shapes";
 
             foreach (var name in FigureRegistry.GetAllNames())
             {
                 cmbShapeTypes.Items.Add(name);
             }
-
             if (cmbShapeTypes.Items.Count > 0)
                 cmbShapeTypes.SelectedIndex = 0;
+        }
+
+        private void Shapes_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        {
+            _isDirty = true;
+
+            var baseTitle = "FiguresApp";
+            this.Title = _isDirty ? $"{baseTitle} - {_shapes.Count} shapes*" : $"{baseTitle} - {_shapes.Count} shapes";
         }
 
         private void cmbShapeTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -80,7 +91,7 @@ namespace FiguresApp
             if (model != null)
             {
                 handler.Renderer.Render(model, drawingCanvas);
-                _shapes.Add(model);   // Add to list for serialization
+                _shapes.Add(model);   
             }
         }
 
@@ -116,9 +127,10 @@ namespace FiguresApp
             drawingCanvas.Children.Clear();
             _shapes.Clear();
             ClearPointsAndDot();
+            _isDirty = false;
+            this.Title = $"FiguresApp - {_shapes.Count} shapes";
         }
 
-        // ---------- Serialization / Deserialization ----------
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.SaveFileDialog { Filter = "XML files|*.xml" };
@@ -128,6 +140,9 @@ namespace FiguresApp
                 if (_activeTransformer != null)
                     xml = _activeTransformer.TransformBeforeSave(xml);
                 File.WriteAllText(dialog.FileName, xml);
+                
+                _isDirty = false;
+                this.Title = $"FiguresApp - {_shapes.Count} shapes";
             }
         }
 
@@ -137,11 +152,11 @@ namespace FiguresApp
             if (dialog.ShowDialog() == true)
             {
                 string xml = File.ReadAllText(dialog.FileName);
-                // Apply transformers in reverse order
+                
                 if (_activeTransformer != null)
                     xml = _activeTransformer.TransformAfterLoad(xml);
                 var loadedShapes = ShapeCollectionSerializer.LoadFromString(xml);
-                // Replace current shapes
+               
                 drawingCanvas.Children.Clear();
                 _shapes.Clear();
                 foreach (var shape in loadedShapes)
@@ -150,15 +165,16 @@ namespace FiguresApp
                     var renderer = RendererRegistry.GetRenderer(shape);
                     renderer?.Render(shape, drawingCanvas);
                 }
+                _isDirty = false;
+                this.Title = $"FiguresApp - {_shapes.Count} shapes";
             }
         }
 
         private void ExportHtml_Click(object sender, RoutedEventArgs e)
         {
-            // Use active transformer if it is the HTML report transformer, otherwise try to find one
             var htmlTransformer = _activeTransformer?.Name == "HTML Report"
                 ? _activeTransformer
-                : TransformerRegistry.GetAll().FirstOrDefault(t => t.Name == "HTML Report");
+                : TransformerRegistry.Instance.GetAll().FirstOrDefault(t => t.Name == "HTML Report");
 
             if (htmlTransformer == null)
             {

@@ -5,21 +5,30 @@ using System.Reflection;
 
 namespace Figures
 {
-    public static class TransformerRegistry
+    public sealed class TransformerRegistry
     {
-        private static readonly List<IDataTransformer> _transformers = new();
+        private readonly List<IDataTransformer> _transformers = new();
 
-        public static void Register(IDataTransformer transformer)
+        private TransformerRegistry()
         {
+        }
+
+        private static readonly Lazy<TransformerRegistry> _instance = new(() => new TransformerRegistry());
+
+        public static TransformerRegistry Instance => _instance.Value;
+
+        public void Register(IDataTransformer transformer)
+        {
+            if (transformer == null) return;
             if (_transformers.Any(t => t.GetType() == transformer.GetType() || t.Name == transformer.Name))
                 return;
 
             _transformers.Add(transformer);
         }
 
-        public static IEnumerable<IDataTransformer> GetAll() => _transformers;
+        public IEnumerable<IDataTransformer> GetAll() => _transformers;
 
-        public static void AutoRegisterTransformers()
+        public void AutoRegisterTransformers()
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             foreach (var assembly in assemblies)

@@ -4,6 +4,6 @@ public class HtmlReportRegistration : IFigureRegistration
 {
     public void Register()
     {
-        TransformerRegistry.Register(new HtmlReportTransformer());
+        TransformerRegistry.Instance.Register(new HtmlReportTransformer());
     }
 }

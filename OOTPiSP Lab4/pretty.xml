@@ -2,65 +2,182 @@
 <Shapes>
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="193.00000000000003"
-		CenterY="222.64000000000001"
-		Width="79.19999999999999"
-		Height="220.8"
+		CenterX="215.8"
+		CenterY="177.83999999999997"
+		Width="73.60000000000002"
+		Height="140.79999999999998"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="464.6"
-		CenterY="276.24"
-		Width="60.799999999999955"
-		Height="228.80000000000004"
+		CenterX="399.8"
+		CenterY="416.64000000000004"
+		Width="60.80000000000007"
+		Height="114.39999999999998"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="133.4"
-		CenterY="454.64000000000004"
-		Width="188.8"
-		Height="91.20000000000005"
+		CenterX="168.20000000000002"
+		CenterY="384.24000000000007"
+		Width="37.599999999999966"
+		Height="72"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="383.40000000000003"
-		CenterY="514.24"
-		Width="176.80000000000007"
-		Height="58.39999999999992"
+		CenterX="590.6000000000001"
+		CenterY="236.64000000000004"
+		Width="173.60000000000002"
+		Height="103.20000000000007"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="319.40000000000003"
-		CenterY="330.64000000000004"
-		Width="48.80000000000007"
-		Height="40"
+		CenterX="532.6"
+		CenterY="519.0400000000001"
+		Width="172.79999999999995"
+		Height="61.599999999999966"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
 	<Shape
 		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="293.00000000000006"
-		CenterY="188.64"
+		CenterX="193"
+		CenterY="357.0400000000001"
+		Width="100"
+		Height="49.599999999999966"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="129.8"
+		CenterY="479.44000000000005"
+		Width="28"
+		Height="70.39999999999992"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="331"
+		CenterY="444.64"
+		Width="52.799999999999955"
+		Height="109.59999999999997"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="105.80000000000001"
+		CenterY="323.44000000000005"
+		Width="66.39999999999998"
+		Height="12.800000000000011"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="350.20000000000005"
+		CenterY="351.44000000000005"
+		Width="123.20000000000005"
+		Height="9.600000000000023"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="475.40000000000003"
+		CenterY="134.24"
+		Width="45.60000000000002"
+		Height="53.599999999999994"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="390.6"
+		CenterY="403.84000000000003"
+		Width="160.79999999999995"
+		Height="44"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="276.20000000000005"
+		CenterY="239.04000000000002"
+		Width="112.80000000000001"
+		Height="120.80000000000004"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="522.6"
+		CenterY="281.04"
+		Width="63.200000000000045"
+		Height="152.00000000000003"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="473.80000000000007"
+		CenterY="491.44000000000005"
+		Width="220"
+		Height="39.99999999999994"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="248.20000000000002"
+		CenterY="306.24"
+		Width="32.80000000000001"
+		Height="151.20000000000002"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="513"
+		CenterY="170.64"
+		Width="165.60000000000002"
+		Height="68.79999999999998"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="492.6"
+		CenterY="381.84000000000003"
+		Width="208"
+		Height="76.80000000000001"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="321"
+		CenterY="234.24000000000004"
+		Width="130.40000000000003"
+		Height="140.00000000000006"
+		Stroke="#FF000000"
+		Fill="#FFD3D3D3"
+		StrokeThickness="2" />
+	<Shape
+		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+		CenterX="461.8"
+		CenterY="241.44"
 		Width="13.600000000000023"
-		Height="16.799999999999983"
+		Height="112.80000000000004"
 		Stroke="#FF000000"
 		Fill="#FFD3D3D3"
 		StrokeThickness="2" />
-	<Shape
-		Type="RhombusPlugin.RhombusShape, RhombusPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
-		CenterX="95.80000000000004"
-		CenterY="307.0400000000001"
-		Width="51.19999999999999"
-		Height="88.80000000000001"
-		Stroke="#FF000000"
-		Fill="#FFD3D3D3"
-		StrokeThickness="6" />
 </Shapes>

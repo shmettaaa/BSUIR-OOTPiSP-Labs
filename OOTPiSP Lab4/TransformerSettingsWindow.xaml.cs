@@ -12,7 +12,7 @@ namespace FiguresApp
         public TransformersSettingsWindow(IDataTransformer current)
         {
             InitializeComponent();
-            var list = TransformerRegistry.GetAll().ToList();
+            var list = TransformerRegistry.Instance.GetAll().ToList();
             lbTransformers.ItemsSource = list;
             // Pre-select current active transformer
             if (current != null)

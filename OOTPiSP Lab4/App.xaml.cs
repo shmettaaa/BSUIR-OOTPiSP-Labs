@@ -13,7 +13,7 @@ namespace FiguresApp
         {
             LoadPlugins();   // загружает плагины и вызывает их Register()
             FigureRegistry.AutoRegister();   // регистрирует встроенные фигуры
-            TransformerRegistry.AutoRegisterTransformers(); // регистрирует встроенные трансформаторы (если есть)
+            TransformerRegistry.Instance.AutoRegisterTransformers(); // регистрирует встроенные трансформаторы (если есть)
             base.OnStartup(e);
         }
 
